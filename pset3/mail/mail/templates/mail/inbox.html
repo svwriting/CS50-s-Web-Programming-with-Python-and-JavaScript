@@ -1,0 +1,73 @@
+{% extends "mail/layout.html" %}
+{% load static %}
+
+{% block body %}
+    <h2 id='logging_email'>{{ request.user.email }}</h2>
+
+    <button class="btn btn-sm btn-outline-primary" id="inbox">Inbox</button>
+    <button class="btn btn-sm btn-outline-primary" id="compose">Compose</button>
+    <button class="btn btn-sm btn-outline-primary" id="sent">Sent</button>
+    <button class="btn btn-sm btn-outline-primary" id="archived">Archived</button>
+    <a class="btn btn-sm btn-outline-primary" href="{% url 'logout' %}">Log Out</a>
+    <hr>
+
+    <div id="emails-view">
+    </div>
+
+    <div id="compose-view">
+        <h3>New Email</h3>
+        <form id="compose-form">
+            <div class="form-group">
+                From: <input disabled class="form-control" value="{{ request.user.email }}">
+            </div>
+            <div class="form-group">
+                To: <input id="compose-recipients" class="form-control">
+            </div>
+            <div class="form-group">
+                <input class="form-control" id="compose-subject" placeholder="Subject">
+            </div>
+            <textarea class="form-control" id="compose-body" placeholder="Body"></textarea>
+            <input type="submit" class="btn btn-primary"/>
+        </form>
+    </div>
+
+    <div id="email-view">
+        <button id='archive_btn'>Archive</button>
+        <br>
+        <div class='fxl fb inline'>
+            Subject: 
+        </div>
+        <div class="fxl fb email_subject inline">
+            <!--subject-->
+        </div>
+        <div class="fm email_timestamp">
+            <!--timestamp-->
+        </div>
+        <hr class='hr_1'>
+        <div class='fl fb inline'>
+            Sender: 
+        </div>
+        <div class="fl email_sender inline">
+            <!--sender-->
+        </div>
+        <hr class='hr_1'>
+        <div class='fl fb inline'>
+            Recipient(s): 
+        </div>
+        <div class="fl email_recipients inline">
+            <!--recipients-->
+        </div>
+        <hr class='hr_2'>
+        <div class="fl email_body">
+            <!--body-->
+        </div>
+        <br>
+        <br>
+        <br>
+        <button id="reply_btn">Reply</button>
+    </div>
+{% endblock %}
+
+{% block script %}
+    <script src="{% static 'mail/inbox.js' %}"></script>
+{% endblock %}

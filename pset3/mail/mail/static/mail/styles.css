@@ -1,0 +1,87 @@
+textarea {
+    min-height: 400px;
+}
+
+.EmailPreviewBox {
+    border: 1px solid black;
+}
+
+.EmailPreviewBox:hover {
+    cursor: pointer;
+}
+
+.PreviewRead {
+    color: white;
+    background-color: gray;
+}
+
+.PreviewUnread {
+    color: gray;
+    background-color: white;
+}
+
+.inline {
+    display: inline;
+}
+
+.fxl {
+    font-size: x-large;
+}
+
+.fxxl {
+    font-size: xx-large;
+}
+
+.fl {
+    font-size: larger;
+}
+
+.fm {
+    font-size: medium;
+}
+
+.fb {
+    font-weight: bold;
+}
+
+.email_subject {
+    color: grey;
+}
+
+.email_timestamp {
+    color: slategrey;
+}
+
+.email_sender,
+.email_recipients {
+    color: gray;
+}
+
+.email_body {
+    height: 200px;
+    color: black;
+}
+
+.hr_1 {
+    margin-top: -2px;
+    margin-bottom: -2px;
+    border: '';
+}
+
+.hr_2 {
+    margin-top: 2px;
+    margin-bottom: 3px;
+    border: '';
+    border-top: 5px double;
+}
+
+#archive_btn {
+    margin-left: 420px;
+}
+
+#reply_btn {
+    width: 20%;
+    position: absolute;
+    left: 40%;
+    border: 5px groove silver;
+}
