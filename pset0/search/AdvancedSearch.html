@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Search</title>
+    <style>
+        .grid-item1 {
+            font-family: arial, sans-serif;
+            color: #222;
+            line-height: 16px;
+            font-size: 100%;
+            text-decoration: none;
+            height: 30px;
+            display: table-cell;
+            vertical-align: middle;
+        }
+
+        .grid-item0 {
+            font-family: arial, sans-serif;
+            text-decoration: none;
+            display: inline-block;
+            min-width: 167px;
+            width: 16%;
+            height: 42px;
+            color: #222;
+            font-size: 13px;
+            line-height: 16px;
+            vertical-align: middle;
+        }
+
+        label {
+            font-family: align-self, sans-serif;
+            font-size: 8px;
+            width: 150px;
+            line-height: 16px;
+            font-weight: lighter;
+            font-size: 100%;
+            vertical-align: baseline;
+        }
+
+        input {
+            border-radius: 1px;
+            border: 1px solid #d9d9d9;
+            border-top: 1px solid #c0c0c0;
+            font-size: 13px;
+            height: 25px;
+            width: 300px;
+            outline: 0;
+        }
+
+        #fpw {
+            font-family: align-self, sans-serif;
+            font-weight: light;
+        }
+
+        #submitButton {
+            -webkit-user-select: none;
+            user-select: none;
+            line-height: 100%;
+            height: 30px;
+            width: 128px;
+            min-width: 120px;
+            background-color: #4d90fe;
+            color: white;
+            border: 0;
+            outline: 0;
+            -webkit-border-radius: 2px;
+            -moz-border-radius: 2px;
+            border-radius: 2px;
+            font-size: 11px;
+            font-weight: bold;
+            text-align: center;
+            margin-right: 16px;
+            padding: 0 8px;
+        }
+
+        a {
+            position: fixed;
+            right: 0;
+            top: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <a href='index.html'>Google Search</a>
+    <div style="margin-left: 30px;margin-top: 30px;">
+        <div style="line-height: 46px;" id='fpw'>Find pages with...</div>
+        <form action="https://google.com/search">
+            <div class="grid" style="width: 500px;">
+                <div>
+                    <div class="grid-item0">
+                        <div class="grid-item1">
+                            <label for='as_q'>all these words:</label>
+                        </div>
+                    </div>
+                    <input type="text" name="as_q" id="as_q">
+                </div>
+                <div>
+                    <div class="grid-item0">
+                        <div class="grid-item1">
+                            <label for='as_epq'>any of these words:</label>
+                        </div>
+                    </div>
+                    <input type="text" name="as_epq" id="as_epq">
+                </div>
+                <div>
+                    <div class="grid-item0">
+                        <div class="grid-item1">
+                            <label for='as_oq'>this exact word or phrase:</label>
+                        </div>
+                    </div>
+                    <input type="text" name="as_oq" id="as_oq">
+                </div>
+                <div>
+                    <div class="grid-item0">
+                        <div class="grid-item1">
+                            <label for='as_eq'>numbers ranging from:</label>
+                        </div>
+                    </div>
+                    <input type="text" name="as_eq" id="as_eq">
+                </div>
+                <div style="float: right;">
+                    <input type="submit" value="Advanced Search" id='submitButton' style="margin-right: 25px;">
+                </div>
+            </div>
+        </form>
+</body>
+
+</html>
