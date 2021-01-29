@@ -1,0 +1,25 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}
+    Encyclopedia
+{% endblock %}
+
+{% block body %}
+    <div>
+        <h1 style='color:gray;'>{{entrytitle}}</h1>
+    </div>
+    <form style="width: 400px;">
+        <div>
+            <input id='ACT' type="text" name="Action" hidden>
+            <input type="text" name="EntryTitle" value={{entrytitle}} hidden>
+            <textarea id='contentTA' required name="EntryContent" style="resize:none;height:300px;width:400px;outline:0;">{{entrydetail|safe}}</textarea>
+        </div>
+        <div style="float: left;">
+            <input type="submit" onclick="document.getElementById('ACT').value='DELET'" value="DELET" style="height:30px;width:60px;color:white;background-color:darkred;">
+        </div>
+        <div style="float: right;">
+            <input type="submit" onclick="document.getElementById('ACT').value='COMFIRM'" value="Comfirm" style="height:30px;width:100px;">
+            <input type="submit" onclick="document.getElementById('ACT').value='CANCEL'"  text="Cancel" value="Cancel" style="height:30px;width:100px;">
+        </div>
+    <form>
+{% endblock %}

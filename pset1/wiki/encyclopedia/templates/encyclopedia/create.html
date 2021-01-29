@@ -1,0 +1,54 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}
+    Encyclopedia
+{% endblock %}
+
+{% block body %}
+    <h1>Create New Page</h1>
+    <script>
+        function EntryExistCheck_s(form){
+            if ( {{entrieslower|safe}}.includes(form.EntryTitle.value.toLowerCase())){
+                alert("Entry already exists.");
+                form.EntryTitle.focus();
+                return(false)
+            }else{
+                if(confirm("Sure？")){
+                    return(true)
+                }else{
+                    form.EntryTitle.focus();
+                    return(false)
+                }
+            }
+        }
+        function EntryExistCheck_t(form){
+            v_a=document.getElementById('contentTA').value.split('\n')
+            if (v_a[0][0]=='#'){
+                v_a[0]="# "+ form.EntryTitle.value
+                document.getElementById('contentTA').value=v_a.join('\n')
+            }else{
+                document.getElementById('contentTA').value="# "+form.EntryTitle.value+'\n'+document.getElementById('contentTA').value
+            }
+            
+            if ( {{entrieslower|safe}}.includes(form.EntryTitle.value.toLowerCase())){
+                document.getElementById('labelCheck').style.display = 'block';
+            }
+            else{
+                document.getElementById('labelCheck').style.display = 'none';
+            }
+        }
+    </script>
+    <form style="width: 400px;">
+        <div>
+            <input required type="text" name="EntryTitle" placeholder="Entry title" style="float:left;height:50px;width:150px;outline:0;font-size:15px;font-weight:bold;" onkeyup="EntryExistCheck_t(this.form);">
+            <label id="labelCheck" style="font-size=15px;margin-left:auto;margin-bottom:auto;color:red;display:none;">Entry already exists</label>
+        </div>
+        <div>
+            <textarea id='contentTA' required name="EntryContent" placeholder="content..." style="resize:none;height:300px;width:400px;outline:0;"># Entry content&#13;&#10;</textarea>
+        </div>
+        <div style="float: right;">
+            <input type="submit" value="Comfirm" style="height:30px;width:100x;" onclick="return EntryExistCheck_s(this.form);">
+        </div>
+    <form>
+
+{% endblock %}

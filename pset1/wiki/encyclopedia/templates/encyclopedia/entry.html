@@ -1,0 +1,19 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}
+    {{entrytitle}}
+{% endblock %}
+
+{% block body %}
+    <div>
+        <h1 style='color:gray;'>{{entrytitle}}</h1>
+    </div>
+    <br/>
+    <div style="float:left;"></div>
+        {{ entrydetailHTML|safe}}
+    <div></div>
+    <br/>
+    {% if entryexist %}
+        <a href="@Edit{{entrytitle}}" style="color:darkblue;text-decoration:underline;margin-left:auto;margin-button:auto;">Edit</a>
+    {% endif %}
+{% endblock %}
