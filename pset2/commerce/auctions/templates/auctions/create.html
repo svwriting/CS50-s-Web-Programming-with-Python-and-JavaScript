@@ -1,0 +1,33 @@
+{% extends "auctions/layout.html" %}
+
+{% block body %}
+    <h2>Create New Listing</h2>
+    <form method='post' enctype="multipart/form-data" >
+        <div style='display:grid;grid-template-columns:200px 400px;'>
+            <label style='font-size: 14px;font-weight: bold;color: #333;display: block;float: left;line-height: 1;width: 100%;padding: 0 0 10px;'>Auction Category:</label>
+            <div>
+                <select id="sss" name="Auction_Category" style='outline:0px;vertical-align: middle;font-weight: normal;border: 1px solid #ccc;border-radius: 4px;box-sizing: border-box;padding: 6px 8px;min-height: 36px;font-size: 14px;height: 36px;flex: 1 1 auto;max-width: 100%;' >
+                    {{selectItems|safe}}
+                </select>
+                <img style='cursor:pointer;' src="/media/add.jpg" alt="Add" onclick="{window.open('/AddCategory','test',`scrollbars=no,resizable=no,status=no,location=no,toolbar=no,menubar=no,width=600,height=300,left=100,top=100`)}">
+            </div>
+        </div>
+        <div style='display:grid;grid-template-columns:200px 400px;'>
+            <label style='font-size: 14px;font-weight: bold;color: #333;display: block;float: left;line-height: 1;width: 100%;padding: 0 0 10px;'>Auction title:</label>
+            <input type="text" name="Auction_title" maxlength="64" style='outline:0px;font-weight: normal;width: 20em;border: 1px solid #ccc;border-radius: 4px;vertical-align: middle;box-sizing: border-box;padding: 6px 8px;min-height: 36px;font-size: 14px;flex: 1 1 auto;max-width: 100%;' required>
+        </div>
+        <div style='display:grid;grid-template-columns:200px 400px;'>
+            <label style='font-size: 14px;font-weight: bold;color: #333;display: block;float: left;line-height: 1;width: 100%;padding: 0 0 10px;'>Auction description:</label>
+            <textarea name="Auction_description" cols="40" rows="10" maxlength="200" style='outline:0px;font-weight: normal;vertical-align: top;border: 1px solid #ccc;border-radius: 4px;max-height: 120px;box-sizing: border-box;padding: 6px 8px;min-height: 36px;font-size: 14px;flex: 1 1 auto;max-width: 100%;width: 610px;'></textarea>
+        </div>
+        <div style='display:grid;grid-template-columns:200px 400px;'>
+            <label style='font-size: 14px;font-weight: bold;color: #333;display: block;float: left;line-height: 1;width: 100%;padding: 0 0 10px;'>Auction photo:</label>
+            <input type="file" multiple='false' name="Auction_photo" accept="image/*" style='outline:0px;margin: 2px 0;padding: 2px 3px;font-weight: normal;font-size: 13px;vertical-align: middle;flex: 1 1 auto;max-width: 100%;'>
+        </div>
+        <div style='display:grid;grid-template-columns:200px 400px;'>
+            <label style='font-size: 14px;font-weight: bold;color: #333;display: block;float: left;line-height: 1;width: 100%;padding: 0 0 10px;'>Starting bid:</label>
+            <input type="text" name='Auction_startingbid' pattern='[0-9]{1,14}(\.{0,1}[0-9]{1,2})?' maxlength="64" style='outline:0px;font-weight: normal;width: 20em;border: 1px solid #ccc;border-radius: 4px;vertical-align: middle;box-sizing: border-box;padding: 6px 8px;min-height: 36px;font-size: 14px;flex: 1 1 auto;max-width: 100%;' required>
+        </div>
+        <input type='submit' style='margin-left:420px;' value='submit'>
+    </form>
+{% endblock %}
